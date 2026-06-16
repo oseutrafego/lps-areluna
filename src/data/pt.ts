@@ -14,11 +14,11 @@ const formFields = [
   { name: "telemovel", label: "Telemóvel", type: "tel" as const, required: true },
   { name: "email", label: "E-mail", type: "email" as const, required: true },
   {
-    name: "pais",
-    label: "País onde reside",
+    name: "distrito",
+    label: "Distrito",
     type: "select" as const,
     required: true,
-    options: ["Portugal", "França", "Suíça", "Luxemburgo", "Bélgica", "Países Baixos", "Alemanha", "Outro"],
+    options: ["Porto", "Braga", "Aveiro", "Viana do Castelo", "Vila Real", "Bragança", "Lisboa", "Coimbra", "Outro"],
   },
 ];
 
@@ -85,8 +85,8 @@ const implantes: Procedure = {
       body: "Próteses desenhadas para o seu rosto, com proporção e tonalidade naturais. O luxo está na naturalidade.",
     },
     {
-      title: "Pensado para quem viaja",
-      body: "Recebemos pacientes de toda a Europa com agenda concentrada e check-up integrado. Resolvemos o essencial em poucos dias.",
+      title: "Acompanhamento para a vida",
+      body: "Não desaparecemos depois da cirurgia. Plano de manutenção e revisões para que o seu sorriso dure — com a mesma equipa, sempre.",
     },
   ],
 
@@ -112,8 +112,9 @@ const implantes: Procedure = {
 
   galleryTitle: "Transformações reais",
   gallerySub:
-    "Histórias de pacientes que viajaram — alguns mais de 1.500 km — para recuperar a confiança de sorrir.",
+    "Pacientes que recuperaram a confiança de sorrir, mastigar e viver sem constrangimentos.",
   galleryCaptions: ["Reabilitação total", "All-on-4 superior e inferior", "Sorriso renovado"],
+  galleryImages: ["/img/cases/impl-1.jpg", "/img/cases/impl-3.jpg", "/img/cases/impl-2.jpg"],
 
   proTitle: "Quem cuida do seu sorriso",
   proIntro:
@@ -136,7 +137,7 @@ const implantes: Procedure = {
     },
     {
       name: "João S.",
-      meta: "65 anos · França → Porto",
+      meta: "65 anos · Braga",
       quote:
         "A segurança de morder, falar e sorrir… tudo voltou em 24 horas. Recomendo sem pensar duas vezes.",
     },
@@ -152,8 +153,8 @@ const implantes: Procedure = {
       a: "A técnica All-on-4 foi concebida precisamente para evitar enxertos na grande maioria dos casos, aproveitando o osso disponível. Confirmamos tudo na avaliação com TAC 3D.",
     },
     {
-      q: "Moro fora de Portugal. Como funciona?",
-      a: "Recebemos pacientes de toda a Europa. Organizamos a agenda de forma concentrada, com avaliação, cirurgia e acompanhamento planeados para minimizar as suas deslocações.",
+      q: "A cirurgia é dolorosa? E a recuperação?",
+      a: "O procedimento é realizado em ambiente seguro e confortável. A recuperação costuma ser mais simples do que se imagina, e damos-lhe todas as orientações para um pós-operatório tranquilo.",
     },
     {
       q: "Qual é a durabilidade e a garantia?",
@@ -228,7 +229,7 @@ const facetas: Procedure = {
     },
     {
       title: "Resultado em poucos dias",
-      body: "Um protocolo eficiente, pensado também para quem se desloca de fora, com o mínimo de visitas.",
+      body: "Um protocolo eficiente, com o mínimo de visitas — para que veja o seu novo sorriso o quanto antes.",
     },
     {
       title: "Naturalidade acima de tudo",
@@ -262,7 +263,8 @@ const facetas: Procedure = {
 
   galleryTitle: "Antes & depois",
   gallerySub: "Sorrisos reais transformados com facetas no Instituto Areluna.",
-  galleryCaptions: ["Correção de cor e forma", "Encerramento de espaços", "Sorriso renovado"],
+  galleryCaptions: ["Correção de cor e forma", "Sorriso desenhado", "Resultado natural"],
+  galleryImages: ["/img/cases/facetas-1.jpg", "/img/cases/facetas-2.jpg", "/img/cases/facetas-3.jpg"],
 
   proTitle: "Quem desenha o seu sorriso",
   proIntro:
@@ -303,7 +305,7 @@ const facetas: Procedure = {
     },
     {
       q: "Quanto tempo demora o tratamento?",
-      a: "Na maioria dos casos, poucos dias e poucas visitas — um protocolo pensado também para quem se desloca de fora.",
+      a: "Na maioria dos casos, poucos dias e poucas visitas. Definimos o cronograma certo para si logo na avaliação.",
     },
     {
       q: "Quanto duram as facetas?",
@@ -377,7 +379,7 @@ const alinhadores: Procedure = {
     },
     {
       title: "Menos visitas, mais resultado",
-      body: "Protocolo eficiente, com consultas otimizadas — também pensado para quem se desloca de fora.",
+      body: "Protocolo eficiente, com consultas otimizadas e acompanhamento que respeita a sua rotina.",
     },
     {
       title: "Estética e função",
@@ -407,7 +409,8 @@ const alinhadores: Procedure = {
 
   galleryTitle: "Resultados reais",
   gallerySub: "Sorrisos alinhados de forma discreta no Instituto Areluna.",
-  galleryCaptions: ["Apinhamento corrigido", "Espaços encerrados", "Sorriso alinhado"],
+  galleryCaptions: ["Apinhamento corrigido", "Mordida alinhada", "Sorriso alinhado"],
+  galleryImages: ["/img/cases/alinh-1.jpg", "/img/cases/alinh-2.jpg", "/img/cases/alinh-3.jpg"],
 
   proTitle: "Quem conduz o seu tratamento",
   proIntro:
@@ -451,8 +454,8 @@ const alinhadores: Procedure = {
       a: "Depende da complexidade do seu caso. Na avaliação mostramos-lhe a estimativa com base no plano digital personalizado.",
     },
     {
-      q: "Moro fora. É possível fazer convosco?",
-      a: "Sim. Otimizamos as consultas para minimizar deslocações, com acompanhamento próximo em cada fase.",
+      q: "Com que frequência tenho de ir à clínica?",
+      a: "As consultas são otimizadas e espaçadas, com acompanhamento próximo em cada fase. Definimos o calendário na avaliação, de forma a encaixar na sua rotina.",
     },
   ],
 
@@ -525,8 +528,8 @@ const capilar: Procedure = {
       body: "Ambiente clínico, equipa médica e protocolo cuidado. A sua segurança vem sempre em primeiro lugar.",
     },
     {
-      title: "Pensado para quem viaja",
-      body: "Recebemos pacientes de toda a Europa, com agenda concentrada e acompanhamento à distância no pós-procedimento.",
+      title: "Acompanhamento de perto",
+      body: "Da avaliação ao resultado final, acompanhamos cada fase da sua evolução — sem o abandono típico das clínicas de volume.",
     },
   ],
 
@@ -568,8 +571,8 @@ const capilar: Procedure = {
     },
     {
       name: "Nuno A.",
-      meta: "44 anos · Luxemburgo → Porto",
-      quote: "Vim de fora por causa da reputação. Valeu cada quilómetro. Atendimento impecável.",
+      meta: "44 anos · Transplante capilar",
+      quote: "Pensei em ir à Turquia, mas escolhi fazer cá e não me arrependo. Atendimento impecável.",
     },
     {
       name: "Tiago M.",
@@ -596,8 +599,8 @@ const capilar: Procedure = {
       a: "Aqui o transplante é conduzido por equipa médica especializada, com padrão europeu, acompanhamento próximo e a segurança de uma clínica licenciada — sem abdicar da naturalidade do resultado.",
     },
     {
-      q: "Vivo noutro país. Como funciona?",
-      a: "Recebemos pacientes de toda a Europa, com agenda concentrada e acompanhamento à distância no pós-procedimento. Tratamos de tudo para que a sua deslocação seja simples.",
+      q: "Como é o acompanhamento depois do procedimento?",
+      a: "Acompanhamos de perto toda a sua evolução, com orientações claras de pós-procedimento e revisões — para garantir o melhor resultado a longo prazo.",
     },
   ],
 

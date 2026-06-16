@@ -79,6 +79,7 @@ export interface Procedure {
   galleryTitle: string;
   gallerySub: string;
   galleryCaptions: string[];
+  galleryImages?: string[]; // fotos reais (antes/depois já compostos). Sem isto, usa placeholder.
   // Professionals
   proTitle: string;
   proIntro: string;
