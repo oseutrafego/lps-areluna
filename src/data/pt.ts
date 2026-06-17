@@ -75,7 +75,7 @@ const implantes: Procedure = {
     { value: "24h", label: "Sorriso fixo" },
     { value: "20+", label: "Anos de garantia" },
     { value: "450+", label: "Avaliações 5★" },
-    { value: "12", label: "Especialidades" },
+    { value: "8", label: "Especialistas" },
   ],
 
   diffEyebrow: "Por que Areluna",
@@ -396,7 +396,7 @@ const alinhadores: Procedure = {
     { value: "100%", label: "Discreto" },
     { value: "3D", label: "Plano digital" },
     { value: "450+", label: "Avaliações 5★" },
-    { value: "12", label: "Especialidades" },
+    { value: "8", label: "Especialistas" },
   ],
 
   diffEyebrow: "Por que Areluna",

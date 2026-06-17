@@ -23,12 +23,11 @@ export const PT_CONTACT = {
 };
 
 // ── Contactos Brasil (Curitiba/PR) ──────────────────────────
-// NOTA: telefone/WhatsApp BR ainda não fornecidos. Mantemos vazios para NÃO
-// exibir número falso (credibilidade). Preencher com os reais antes do go-live.
+// Telefone/WhatsApp da receção Areluna BR (fixo e WhatsApp no mesmo número).
 export const BR_CONTACT = {
-  phoneDisplay: "",
-  phoneHref: "",
-  whatsappHref: "",
+  phoneDisplay: "+55 41 3163-7004",
+  phoneHref: "tel:+554131637004",
+  whatsappHref: "https://wa.me/554131637004",
   address: "Curitiba — Paraná, Brasil",
   regulatory: [
     "Responsável técnica inscrita no CRO-PR",
