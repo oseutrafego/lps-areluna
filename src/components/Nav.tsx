@@ -15,15 +15,17 @@ export default function Nav({ p }: { p: Procedure }) {
           className="h-14 w-auto md:h-16"
         />
         <div className="flex items-center gap-6">
-          <a
-            href={p.phoneHref}
-            className="hidden items-center gap-2 text-sm text-sand/80 transition hover:text-gold-pale sm:flex"
-          >
-            <Phone className="h-4 w-4 text-gold-leaf" />
-            {p.phoneDisplay}
-          </a>
+          {p.phoneDisplay && (
+            <a
+              href={p.phoneHref}
+              className="hidden items-center gap-2 text-sm text-sand/80 transition hover:text-gold-pale sm:flex"
+            >
+              <Phone className="h-4 w-4 text-gold-leaf" />
+              {p.phoneDisplay}
+            </a>
+          )}
           <a href="#form" className="btn-gold !px-5 !py-2.5 !text-[0.72rem]">
-            Marcar avaliação
+            {p.unit === "br" ? "Quero minha avaliação" : "Marcar avaliação"}
           </a>
         </div>
       </div>

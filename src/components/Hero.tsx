@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Procedure } from "@/data/types";
 import LeadForm from "./LeadForm";
+import RatingBadge from "./RatingBadge";
 import { Check, Star } from "./icons";
 
 export default function Hero({ p }: { p: Procedure }) {
@@ -45,16 +46,18 @@ export default function Hero({ p }: { p: Procedure }) {
             <a href="#form" className="btn-gold">
               {p.formCta}
             </a>
-            <div className="flex items-center gap-2.5">
-              <div className="flex text-gold-leaf">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4" />
-                ))}
+            {p.proof ? (
+              <RatingBadge proof={p.proof} />
+            ) : (
+              <div className="flex items-center gap-2.5">
+                <div className="flex text-gold-leaf">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4" />
+                  ))}
+                </div>
+                <span className="text-xs text-sand/55">450+ avaliações 5 estrelas</span>
               </div>
-              <span className="text-xs text-sand/55">
-                450+ avaliações 5 estrelas
-              </span>
-            </div>
+            )}
           </div>
         </div>
 
@@ -66,6 +69,8 @@ export default function Hero({ p }: { p: Procedure }) {
             cta={p.formCta}
             fields={p.formFields}
             footnote={p.formFootnote}
+            offerName={p.offerName}
+            urgency={p.urgency}
           />
         </div>
       </div>

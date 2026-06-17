@@ -1,4 +1,12 @@
-import type { Professional } from "./types";
+import type { Professional, Proof } from "./types";
+
+// Prova social (nota Google). NOTA: confirmar a nota exata com o cliente e,
+// idealmente, substituir por print/embed real do Google Reviews na produção.
+export const PROOF: Proof = {
+  rating: "4,9",
+  count: "450+",
+  caption: "avaliações reais no Google",
+};
 
 // ── Contactos Portugal (Porto) ──────────────────────────────
 export const PT_CONTACT = {
@@ -15,11 +23,12 @@ export const PT_CONTACT = {
 };
 
 // ── Contactos Brasil (Curitiba/PR) ──────────────────────────
-// NOTA: telefone/WhatsApp BR são placeholders — substituir pelos reais.
+// NOTA: telefone/WhatsApp BR ainda não fornecidos. Mantemos vazios para NÃO
+// exibir número falso (credibilidade). Preencher com os reais antes do go-live.
 export const BR_CONTACT = {
-  phoneDisplay: "+55 41 99999-0000",
-  phoneHref: "tel:+5541999990000",
-  whatsappHref: "https://wa.me/5541999990000",
+  phoneDisplay: "",
+  phoneHref: "",
+  whatsappHref: "",
   address: "Curitiba — Paraná, Brasil",
   regulatory: [
     "Responsável técnica inscrita no CRO-PR",

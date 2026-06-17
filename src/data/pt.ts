@@ -1,5 +1,20 @@
 import type { Procedure } from "./types";
-import { PT_CONTACT, PROS } from "./shared";
+import { PT_CONTACT, PROS, PROOF } from "./shared";
+
+// Mecanismo único da unidade PT: laboratório protético próprio dentro da clínica.
+const LAB_MECHANISM = {
+  eyebrow: "O nosso diferencial",
+  title: "O seu sorriso nasce aqui dentro. Não num laboratório qualquer.",
+  body: "Temos o nosso próprio laboratório protético dentro da clínica. Cada dente é desenhado e fabricado sob o mesmo teto, pela nossa equipa — não dependemos de terceiros, nem de prazos de fora, nem de viagens ao estrangeiro. É isto que nos dá controlo total sobre o resultado, a precisão e o tempo.",
+  enemyLine:
+    "É a diferença entre confiar o seu sorriso a quem o fabrica ao seu lado — ou a uma clínica low-cost na Turquia, a 4.000 km, sem retorno fácil se algo correr mal.",
+  points: [
+    { title: "Laboratório próprio", body: "Prótese desenhada e produzida na clínica, com a nossa equipa a acompanhar cada prova." },
+    { title: "Prazos que controlamos", body: "Sem espera por terceiros: ajustamos e entregamos no nosso ritmo, com agilidade." },
+    { title: "Precisão e ajuste", body: "O protésico vê o seu caso de perto. Cada detalhe corrigido até ficar perfeito." },
+    { title: "Acompanhamento perto de casa", body: "Qualquer ajuste futuro resolve-se aqui, no Porto — não num país a horas de avião." },
+  ],
+};
 
 const baseContact = {
   phoneDisplay: PT_CONTACT.phoneDisplay,
@@ -46,11 +61,15 @@ const implantes: Procedure = {
 
   formTitle: "Avaliação especializada",
   formSubtitle:
-    "Receba um plano de tratamento personalizado, com simulação 3D e esclarecimento de todas as suas dúvidas — sem compromisso.",
+    "Plano de tratamento personalizado com a equipa clínica — e todas as suas dúvidas esclarecidas.",
   formCta: "Quero a minha avaliação",
   formFields,
   formFootnote:
     "Os seus dados são tratados com total confidencialidade. Sem custos nem compromisso.",
+  offerName: "TAC 3D + simulação do seu novo sorriso",
+  urgency: "Agenda de cirurgias limitada — vagas este mês",
+  proof: PROOF,
+  mechanism: LAB_MECHANISM,
 
   stats: [
     { value: "24h", label: "Sorriso fixo" },
@@ -157,12 +176,16 @@ const implantes: Procedure = {
       a: "O procedimento é realizado em ambiente seguro e confortável. A recuperação costuma ser mais simples do que se imagina, e damos-lhe todas as orientações para um pós-operatório tranquilo.",
     },
     {
-      q: "Qual é a durabilidade e a garantia?",
-      a: "Os implantes têm uma garantia superior a 20 anos quando acompanhados de manutenção adequada. Damos-lhe um plano de acompanhamento claro desde o primeiro dia.",
+      q: "Qual é a durabilidade e a Garantia Areluna?",
+      a: "Os implantes têm uma garantia superior a 20 anos quando acompanhados da manutenção adequada. A Garantia Areluna cobre os implantes e o acompanhamento de manutenção, com revisões planeadas desde o primeiro dia.",
+    },
+    {
+      q: "Porquê fazer no Porto e não na Turquia?",
+      a: "Na Turquia, o seu sorriso é fabricado num laboratório que nunca verá, a 4.000 km, e qualquer ajuste obriga a outra viagem. Aqui, a prótese é desenhada e produzida no nosso laboratório próprio, a cirurgia é guiada por equipa especializada com padrão europeu, e o acompanhamento — hoje e daqui a anos — resolve-se no Porto. A diferença não está só no preço: está na segurança e em quem responde por si depois.",
     },
     {
       q: "A avaliação tem custo?",
-      a: "A avaliação especializada é o ponto de partida para o seu plano personalizado. Marque sem compromisso e esclareça todas as suas dúvidas com a equipa clínica.",
+      a: "Não. A avaliação especializada — com TAC 3D e simulação — é o ponto de partida do seu plano personalizado, sem custo nem compromisso.",
     },
   ],
 
@@ -184,24 +207,28 @@ const facetas: Procedure = {
     "Facetas dentárias ultrafinas com planeamento digital e resultado 100% natural. Corrija cor, forma e alinhamento em poucos dias. Avaliação no Porto.",
 
   eyebrow: "Facetas Dentárias",
-  h1Lead: "O seu sorriso,",
-  h1Accent: "na sua melhor versão",
+  h1Lead: "Veja o seu novo sorriso",
+  h1Accent: "antes de o ter",
   heroSub:
-    "Facetas ultrafinas, desenhadas digitalmente para o seu rosto. Corrigimos cor, forma e alinhamento com um resultado natural — nunca artificial.",
+    "Com o Desenho Digital do Sorriso, mostramos-lhe o resultado em simulação antes de começar. Facetas ultrafinas, desenhadas para o seu rosto — decide com base no que vê, não no que imagina.",
   heroChips: [
-    "Resultado 100% natural",
-    "Planeamento digital 3D",
-    "Mínimo desgaste",
+    "Vê o resultado antes de decidir",
+    "Facetas ultrafinas (mínimo desgaste)",
+    "Cor e forma à medida",
     "Durabilidade até 20 anos",
   ],
 
   formTitle: "Simulação do seu sorriso",
   formSubtitle:
-    "Veja, antes de decidir, como ficaria o seu novo sorriso. Avaliação com planeamento digital, sem compromisso.",
+    "Veja, antes de decidir, como ficaria o seu novo sorriso, com planeamento digital da nossa equipa.",
   formCta: "Quero simular o meu sorriso",
   formFields,
   formFootnote:
     "Os seus dados são tratados com total confidencialidade. Sem custos nem compromisso.",
+  offerName: "Desenho Digital do Sorriso (DSD) — a simulação do seu resultado",
+  urgency: "Agenda de simulações limitada este mês",
+  proof: PROOF,
+  mechanism: LAB_MECHANISM,
 
   stats: [
     { value: "400+", label: "Sorrisos criados" },
@@ -348,6 +375,22 @@ const alinhadores: Procedure = {
   formFields,
   formFootnote:
     "Os seus dados são tratados com total confidencialidade. Sem custos nem compromisso.",
+  offerName: "Scan digital + simulação do movimento dos seus dentes",
+  urgency: "Vagas de avaliação limitadas este mês",
+  proof: PROOF,
+  mechanism: {
+    eyebrow: "O nosso diferencial",
+    title: "Não é um kit que chega pelo correio. É ortodontia, com médico.",
+    body: "Os alinhadores enviados por correio deixam-no sozinho com a sua boca. Aqui, cada fase é planeada, monitorizada e ajustada por especialistas em ortodontia — porque mover dentes é um ato clínico, não um produto de e-commerce. A diferença aparece no resultado e na segurança.",
+    enemyLine:
+      "Um sorriso é para a vida. Não é coisa para confiar a uma caixa que chega na sua porta sem ninguém o acompanhar.",
+    points: [
+      { title: "Especialista do início ao fim", body: "Ortodontia conduzida pela equipa — não um molde feito em casa." },
+      { title: "Plano monitorizado", body: "Acompanhamos cada alinhador e corrigimos o rumo se for preciso." },
+      { title: "Diagnóstico a sério", body: "Avaliamos osso, raízes e mordida antes de mover um único dente." },
+      { title: "Segurança clínica", body: "Movimento planeado para proteger a saúde dos seus dentes a longo prazo." },
+    ],
+  },
 
   stats: [
     { value: "100%", label: "Discreto" },
@@ -494,6 +537,22 @@ const capilar: Procedure = {
   formFields,
   formFootnote:
     "Os seus dados são tratados com total confidencialidade. Sem custos nem compromisso.",
+  offerName: "Análise capilar + desenho da sua nova linha frontal",
+  urgency: "Agenda de procedimentos limitada este mês",
+  proof: PROOF,
+  mechanism: {
+    eyebrow: "O nosso diferencial",
+    title: "Aqui, o transplante é um ato médico. Não uma linha de montagem.",
+    body: "Na Turquia, centenas de transplantes por dia, muitas vezes com a extração feita por técnicos. Aqui, o seu caso é conduzido pelo Dr. Marcos Kawasaki — 17+ anos em dermatologia e transplante capilar — e a sua linha frontal é desenhada à mão, folículo a folículo, para o seu rosto. É essa a diferença entre cabelo que parece natural e cabelo que denuncia que foi feito.",
+    enemyLine:
+      "Pensa na Turquia pelo preço? Pense também em quem segura o bisturi — e em quem o acompanha quando voltar para casa.",
+    points: [
+      { title: "Médico nomeado", body: "Dr. Marcos Kawasaki conduz o seu caso, do desenho ao acompanhamento." },
+      { title: "Linha desenhada à mão", body: "Ângulo, direção e densidade pensados para o seu rosto e idade." },
+      { title: "Sem fábrica de cirurgias", body: "Foco num resultado, não em volume diário. Tempo e cuidado no seu caso." },
+      { title: "Acompanhamento cá", body: "A sua evolução é seguida no Porto, sem depender de uma clínica longe." },
+    ],
+  },
 
   stats: [
     { value: "17+", label: "Anos de experiência" },

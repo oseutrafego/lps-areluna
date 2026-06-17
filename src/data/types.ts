@@ -29,8 +29,33 @@ export interface Professional {
 
 export interface Testimonial {
   name: string;
-  meta: string; // idade / origem / procedimento
+  meta: string; // idade / cidade / procedimento
   quote: string;
+}
+
+// Mecanismo único — o diferencial que destrói as alternativas (Schwartz Concentration)
+export interface Mechanism {
+  eyebrow: string;
+  title: string;
+  body: string;
+  points: { title: string; body: string }[];
+  enemyLine?: string; // golpe direto contra a alternativa (Turquia / influencer / kit)
+}
+
+// Prova social concreta (não afirmada — mostrada)
+export interface Proof {
+  rating: string; // ex.: "4,9"
+  count: string; // ex.: "450+"
+  caption: string; // ex.: "avaliações reais no Google"
+}
+
+// Bloco de contraste (ex.: rinomodelação × rinoplastia cirúrgica)
+export interface Compare {
+  title: string;
+  intro: string;
+  colA: string; // Areluna / procedimento
+  colB: string; // alternativa
+  rows: { label: string; a: string; b: string }[];
 }
 
 export interface Faq {
@@ -64,6 +89,14 @@ export interface Procedure {
   formCta: string;
   formFields: LeadField[];
   formFootnote: string;
+  offerName?: string; // entregável nomeado da oferta (ex.: "+ Simulação 3D do seu sorriso")
+  urgency?: string; // por que agir agora (agenda/sazonal) — urgência legítima
+  // Prova concreta
+  proof?: Proof;
+  // Mecanismo único
+  mechanism?: Mechanism;
+  // Contraste (opcional, ex.: rino × rinoplastia)
+  compare?: Compare;
   // Trust
   stats: Stat[];
   // Differentials

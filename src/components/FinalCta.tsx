@@ -30,11 +30,19 @@ export default function FinalCta({ p }: { p: Procedure }) {
             <a href="#form" className="btn-gold">
               {p.finalCta}
             </a>
-            <a href={p.whatsappHref} className="btn-ghost" target="_blank" rel="noreferrer">
-              <WhatsApp className="h-4 w-4" />
-              Falar no WhatsApp
-            </a>
+            {p.whatsappHref && (
+              <a href={p.whatsappHref} className="btn-ghost" target="_blank" rel="noreferrer">
+                <WhatsApp className="h-4 w-4" />
+                Falar no WhatsApp
+              </a>
+            )}
           </div>
+          {p.urgency && (
+            <p className="mt-6 flex items-center justify-center gap-2 text-xs font-medium uppercase tracking-[0.14em] text-gold-leaf">
+              <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-gold-leaf" />
+              {p.urgency}
+            </p>
+          )}
         </Reveal>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import type { Procedure } from "@/data/types";
 import Reveal from "./Reveal";
+import RatingBadge from "./RatingBadge";
 import { Star } from "./icons";
 
 export default function Testimonials({ p }: { p: Procedure }) {
@@ -15,6 +16,14 @@ export default function Testimonials({ p }: { p: Procedure }) {
           <h2 className="display text-4xl text-sand md:text-5xl">
             {p.testimonialsTitle}
           </h2>
+          {p.proof && (
+            <div className="mt-7 flex flex-col items-center gap-3">
+              <RatingBadge proof={p.proof} />
+              <span className="text-[0.7rem] uppercase tracking-[0.16em] text-sand/35">
+                Avaliações verificadas de pacientes reais
+              </span>
+            </div>
+          )}
         </Reveal>
 
         <div className="mt-14 grid gap-5 md:grid-cols-3">

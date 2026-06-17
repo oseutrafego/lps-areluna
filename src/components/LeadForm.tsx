@@ -10,6 +10,8 @@ export default function LeadForm({
   cta,
   fields,
   footnote,
+  offerName,
+  urgency,
   id = "form",
 }: {
   title: string;
@@ -17,6 +19,8 @@ export default function LeadForm({
   cta: string;
   fields: LeadField[];
   footnote: string;
+  offerName?: string;
+  urgency?: string;
   id?: string;
 }) {
   const [sent, setSent] = useState(false);
@@ -35,6 +39,20 @@ export default function LeadForm({
       <div className="mb-5">
         <h3 className="font-serif text-3xl font-light text-sand">{title}</h3>
         <p className="mt-2 text-sm leading-relaxed text-sand/60">{subtitle}</p>
+        {offerName && (
+          <div className="mt-4 flex items-start gap-2.5 rounded-sm border border-gold-leaf/25 bg-gold-leaf/[0.06] px-4 py-3">
+            <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold-leaf" />
+            <p className="text-sm leading-snug text-sand/85">
+              Inclui <span className="text-gold-pale">{offerName}</span> — sem custo.
+            </p>
+          </div>
+        )}
+        {urgency && (
+          <p className="mt-3 flex items-center gap-2 text-xs font-medium uppercase tracking-[0.12em] text-gold-leaf">
+            <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-gold-leaf" />
+            {urgency}
+          </p>
+        )}
       </div>
 
       {sent ? (

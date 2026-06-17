@@ -1,5 +1,21 @@
 import type { Procedure } from "./types";
-import { BR_CONTACT, PROS } from "./shared";
+import { BR_CONTACT, PROS, PROOF } from "./shared";
+
+// Mecanismo único da unidade BR: instituto sério (não influencer) com
+// padrão europeu REAL — única em Curitiba com unidade própria em Portugal.
+const INSTITUTO_MECHANISM = {
+  eyebrow: "O nosso diferencial",
+  title: "Padrão europeu de verdade. Não é slogan — é um endereço no Porto.",
+  body: "Em Curitiba, muita gente promete 'padrão europeu'. A Areluna é a única que tem, de facto, uma unidade a operar em Portugal — os mesmos protocolos, a mesma equipa, a mesma exigência. Não somos mais um nome no feed: somos um instituto, com responsabilidade clínica e uma fundadora com dupla titulação Brasil e Portugal.",
+  enemyLine:
+    "A diferença entre um procedimento feito por um perfil que viraliza — e um plano pensado por um instituto que responde por você depois.",
+  points: [
+    { title: "Instituto, não influencer", body: "Equipa e responsabilidade clínica, não a agenda lotada de um nome do momento." },
+    { title: "Unidade real em Portugal", body: "Padrão europeu comprovável: a matriz opera no Porto, com os mesmos protocolos." },
+    { title: "Dupla titulação BR + PT", body: "Fundadora Dra. Arethuza Luna, formada e atuante nos dois países." },
+    { title: "Avaliação antes da agulha", body: "Estudamos o seu rosto e indicamos só o que faz sentido. Sem empurrar procedimento." },
+  ],
+};
 
 const baseContact = {
   phoneDisplay: BR_CONTACT.phoneDisplay,
@@ -46,11 +62,15 @@ const harmonizacao: Procedure = {
 
   formTitle: "Avaliação personalizada",
   formSubtitle:
-    "Receba um plano pensado para o seu rosto, com indicação dos procedimentos certos para os seus objetivos. Sem compromisso.",
+    "Um plano pensado para o seu rosto, com indicação dos procedimentos certos para os seus objetivos.",
   formCta: "Quero minha avaliação",
   formFields,
   formFootnote:
     "Seus dados são tratados com total confidencialidade. Sem custo e sem compromisso.",
+  offerName: "Avaliação facial completa + plano individualizado",
+  urgency: "Agenda de avaliações limitada este mês",
+  proof: PROOF,
+  mechanism: INSTITUTO_MECHANISM,
 
   stats: [
     { value: "450+", label: "Avaliações 5★" },
@@ -183,19 +203,37 @@ const rinomodelacao: Procedure = {
   heroSub:
     "Rinomodelação para harmonizar o contorno do seu nariz sem bisturi, com resultado imediato e natural. Um procedimento de precisão, conduzido com mãos especializadas.",
   heroChips: [
-    "Sem cirurgia",
-    "Resultado imediato",
+    "Sem cirurgia, sem afastamento",
+    "Resultado no mesmo dia",
     "Procedimento de precisão",
-    "Naturalidade garantida",
+    "Proporcional ao seu rosto",
   ],
 
   formTitle: "Avaliação de rinomodelação",
   formSubtitle:
-    "Descubra se a rinomodelação é indicada para o seu caso e veja o que é possível alcançar. Sem compromisso.",
+    "Descubra se a rinomodelação é indicada para o seu caso e veja o que é possível alcançar para o seu perfil.",
   formCta: "Quero minha avaliação",
   formFields,
   formFootnote:
     "Seus dados são tratados com total confidencialidade. Sem custo e sem compromisso.",
+  offerName: "Avaliação do seu perfil + indicação personalizada",
+  urgency: "Agenda de avaliações limitada este mês",
+  proof: PROOF,
+  mechanism: INSTITUTO_MECHANISM,
+  compare: {
+    title: "Rinomodelação ou rinoplastia?",
+    intro:
+      "Para muitos casos, a rinomodelação harmoniza o perfil sem o que mais afasta as pessoas da cirurgia: o corte, o tempo parado e o risco. Veja a comparação que provavelmente já fez na sua cabeça.",
+    colA: "Rinomodelação",
+    colB: "Rinoplastia cirúrgica",
+    rows: [
+      { label: "Cirurgia / cortes", a: "Não", b: "Sim" },
+      { label: "Resultado visível", a: "No mesmo dia", b: "Meses (pós-operatório)" },
+      { label: "Afastamento da rotina", a: "Imediato retorno", b: "Dias a semanas" },
+      { label: "Internamento / anestesia geral", a: "Não", b: "Geralmente sim" },
+      { label: "Reversibilidade", a: "Maior flexibilidade", b: "Definitiva" },
+    ],
+  },
 
   stats: [
     { value: "Sem", label: "Bisturi" },
@@ -336,11 +374,15 @@ const bioestimulador: Procedure = {
 
   formTitle: "Avaliação de pele",
   formSubtitle:
-    "Descubra como o bioestimulador pode atuar no seu caso e receba um plano personalizado. Sem compromisso.",
+    "Descubra como o bioestimulador pode atuar no seu caso e receba um plano personalizado para a sua pele.",
   formCta: "Quero minha avaliação",
   formFields,
   formFootnote:
     "Seus dados são tratados com total confidencialidade. Sem custo e sem compromisso.",
+  offerName: "Avaliação da sua pele + protocolo personalizado",
+  urgency: "O colágeno leva semanas a formar-se — quem começa no inverno chega ao verão com a pele já firme",
+  proof: PROOF,
+  mechanism: INSTITUTO_MECHANISM,
 
   stats: [
     { value: "Colágeno", label: "Estímulo natural" },
@@ -481,15 +523,19 @@ const botox: Procedure = {
 
   formTitle: "Avaliação personalizada",
   formSubtitle:
-    "Receba uma indicação pensada para o seu rosto, com aplicação na medida certa. Sem compromisso.",
+    "Uma indicação pensada para o seu rosto, com aplicação na medida certa para a sua musculatura.",
   formCta: "Quero minha avaliação",
   formFields,
   formFootnote:
     "Seus dados são tratados com total confidencialidade. Sem custo e sem compromisso.",
+  offerName: "Avaliação facial + plano de aplicação individualizado",
+  urgency: "Agenda de avaliações limitada este mês",
+  proof: PROOF,
+  mechanism: INSTITUTO_MECHANISM,
 
   stats: [
     { value: "Natural", label: "Resultado" },
-    { value: "Seguro", label: "Profissional habilitado" },
+    { value: "RELFYDESS", label: "Longa duração" },
     { value: "450+", label: "Avaliações 5★" },
     { value: "BR + PT", label: "Dupla titulação" },
   ],
@@ -520,8 +566,8 @@ const botox: Procedure = {
       body: "Avaliamos a toxina dentro de um plano maior de harmonia facial, para resultados coerentes.",
     },
     {
-      title: "Experiência de cuidado",
-      body: "Acolhimento, técnica e acompanhamento. Uma experiência à altura de quem valoriza o detalhe.",
+      title: "Opção de longa duração (RELFYDESS)",
+      body: "Para quem quer menos manutenção, oferecemos a toxina de longa duração — mesmo resultado natural, com efeito mais prolongado. Avaliamos se é indicada para você.",
     },
   ],
 
@@ -591,8 +637,12 @@ const botox: Procedure = {
       a: "Quando aplicada por profissional habilitado, com produto e técnica adequados, é um procedimento seguro. A sua segurança é a nossa prioridade.",
     },
     {
+      q: "O que é a toxina de longa duração (RELFYDESS)?",
+      a: "É uma toxina botulínica de efeito mais prolongado, indicada para quem deseja menos manutenção sem abrir mão do resultado natural. Na avaliação verificamos se é a melhor opção para o seu caso.",
+    },
+    {
       q: "Como agendo?",
-      a: "Preencha o formulário ou fale conosco no WhatsApp. Nossa equipe entra em contato para agendar a sua avaliação.",
+      a: "Preencha o formulário e nossa equipe entra em contato para agendar a sua avaliação.",
     },
   ],
 
