@@ -3,8 +3,8 @@ import type { Professional, Proof } from "./types";
 // Prova social (nota Google). NOTA: confirmar a nota exata com o cliente e,
 // idealmente, substituir por print/embed real do Google Reviews na produção.
 export const PROOF: Proof = {
-  rating: "4,9",
-  count: "450+",
+  rating: "5,0",
+  count: "500+",
   caption: "avaliações reais no Google",
 };
 
@@ -44,47 +44,62 @@ export const PROS: Record<string, Professional> = {
     role: "Fundadora · Ortodontia & Harmonização",
     credential:
       "Mestrados em Miami e Nova Iorque. Dupla titulação Brasil e Portugal. Referência em harmonização orofacial de resultado natural.",
+    photo: "/img/team/arethuza.jpg",
   },
   leonardo: {
     name: "Dr. Leonardo Saraiva",
     role: "Estomatologia & Patologia Oral",
     credential:
       "Especialista em medicina oral e diagnóstico avançado, com foco em segurança clínica e reabilitação.",
+    photo: "/img/team/leonardo.jpg",
   },
   carla: {
     name: "Dra. Carla Salvi",
     role: "Cirurgia Oral & Maxilofacial",
     credential:
       "Cirurgia guiada por computador e reabilitação com implantes. Precisão milimétrica em carga imediata.",
+    photo: "/img/team/carla.jpg",
   },
   aline: {
     name: "Dra. Aline Marodin",
     role: "Cirurgia Oral & Harmonização Avançada",
     credential:
       "Cirurgiã com formação avançada em harmonização facial e protocolos minimamente invasivos.",
+    photo: "/img/team/aline.jpg",
   },
   daiane: {
     name: "Dra. Daiane Andrade",
     role: "Endodontia",
     credential:
       "Tratamento e preservação dentária com tecnologia de magnificação e diagnóstico digital.",
+    photo: "/img/team/daiane.jpg",
   },
   marcos: {
     name: "Dr. Marcos Kawasaki",
     role: "Dermatologia & Transplante Capilar",
     credential:
       "17+ anos de experiência. Especialista em transplante capilar e saúde da pele e do cabelo.",
+    photo: "/img/team/marcos.jpg",
   },
   sara: {
     name: "Dra. Sara Ribeiro",
     role: "Reabilitação Orofacial",
     credential:
       "Especialista em devolver função e estética ao sorriso, do planeamento à prótese definitiva.",
+    photo: "/img/team/sara.jpg",
   },
   pethine: {
     name: "Dra. Pethine Dalsasso",
     role: "Odontologia & Estética do Sorriso",
     credential:
       "Foco em planeamento digital do sorriso e tratamentos de estética dentária personalizados.",
+    photo: "/img/team/pethine.jpg",
+  },
+  catharina: {
+    name: "Dra. Catharina Souza",
+    role: "Ortodontia",
+    credential:
+      "Especialista em ortodontia com foco em alinhadores invisíveis e planeamento digital do movimento dentário.",
+    photo: "/img/team/catharina.jpg",
   },
 };

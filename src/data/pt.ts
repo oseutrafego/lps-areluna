@@ -28,13 +28,6 @@ const formFields = [
   { name: "nome", label: "Nome completo", type: "text" as const, required: true },
   { name: "telemovel", label: "Telemóvel", type: "tel" as const, required: true },
   { name: "email", label: "E-mail", type: "email" as const, required: true },
-  {
-    name: "distrito",
-    label: "Distrito",
-    type: "select" as const,
-    required: true,
-    options: ["Porto", "Braga", "Aveiro", "Viana do Castelo", "Vila Real", "Bragança", "Lisboa", "Coimbra", "Outro"],
-  },
 ];
 
 // ════════════════════════════════════════════════════════════
@@ -65,7 +58,7 @@ const implantes: Procedure = {
   formCta: "Quero a minha avaliação",
   formFields,
   formFootnote:
-    "Os seus dados são tratados com total confidencialidade. Sem custos nem compromisso.",
+    "Os seus dados são tratados com total confidencialidade.",
   offerName: "TAC 3D + simulação do seu novo sorriso",
   urgency: "Agenda de cirurgias limitada — vagas este mês",
   proof: PROOF,
@@ -74,7 +67,7 @@ const implantes: Procedure = {
   stats: [
     { value: "24h", label: "Sorriso fixo" },
     { value: "20+", label: "Anos de garantia" },
-    { value: "450+", label: "Avaliações 5★" },
+    { value: "500+", label: "Avaliações 5★" },
     { value: "8", label: "Especialistas" },
   ],
 
@@ -138,7 +131,7 @@ const implantes: Procedure = {
   proTitle: "Quem cuida do seu sorriso",
   proIntro:
     "Uma equipa de especialistas com dupla titulação e formação internacional, dedicada a um único objetivo: o seu resultado.",
-  professionals: [PROS.carla, PROS.sara, PROS.aline, PROS.arethuza],
+  professionals: [PROS.carla, PROS.sara, PROS.arethuza],
 
   testimonialsTitle: "Quem confiou, voltou a sorrir",
   testimonials: [
@@ -177,15 +170,11 @@ const implantes: Procedure = {
     },
     {
       q: "Qual é a durabilidade e a Garantia Areluna?",
-      a: "Os implantes têm uma garantia superior a 20 anos quando acompanhados da manutenção adequada. A Garantia Areluna cobre os implantes e o acompanhamento de manutenção, com revisões planeadas desde o primeiro dia.",
+      a: "Os implantes têm uma garantia superior a 20 anos, mediante acompanhamento regular com a equipa Areluna. As revisões periódicas são planeadas desde o primeiro dia — é esse acompanhamento que garante a longevidade do resultado.",
     },
     {
       q: "Porquê fazer no Porto e não na Turquia?",
       a: "Na Turquia, o seu sorriso é fabricado num laboratório que nunca verá, a 4.000 km, e qualquer ajuste obriga a outra viagem. Aqui, a prótese é desenhada e produzida no nosso laboratório próprio, a cirurgia é guiada por equipa especializada com padrão europeu, e o acompanhamento — hoje e daqui a anos — resolve-se no Porto. A diferença não está só no preço: está na segurança e em quem responde por si depois.",
-    },
-    {
-      q: "A avaliação tem custo?",
-      a: "Não. A avaliação especializada — com TAC 3D e simulação — é o ponto de partida do seu plano personalizado, sem custo nem compromisso.",
     },
   ],
 
@@ -224,16 +213,16 @@ const facetas: Procedure = {
   formCta: "Quero simular o meu sorriso",
   formFields,
   formFootnote:
-    "Os seus dados são tratados com total confidencialidade. Sem custos nem compromisso.",
+    "Os seus dados são tratados com total confidencialidade.",
   offerName: "Desenho Digital do Sorriso (DSD) — a simulação do seu resultado",
   urgency: "Agenda de simulações limitada este mês",
   proof: PROOF,
   mechanism: LAB_MECHANISM,
 
   stats: [
-    { value: "400+", label: "Sorrisos criados" },
+    { value: "420K", label: "Sorrisos criados" },
     { value: "3D", label: "Simulação prévia" },
-    { value: "450+", label: "Avaliações 5★" },
+    { value: "500+", label: "Avaliações 5★" },
     { value: "20", label: "Anos de durabilidade" },
   ],
 
@@ -374,7 +363,7 @@ const alinhadores: Procedure = {
   formCta: "Quero a minha avaliação",
   formFields,
   formFootnote:
-    "Os seus dados são tratados com total confidencialidade. Sem custos nem compromisso.",
+    "Os seus dados são tratados com total confidencialidade.",
   offerName: "Scan digital + simulação do movimento dos seus dentes",
   urgency: "Vagas de avaliação limitadas este mês",
   proof: PROOF,
@@ -395,7 +384,7 @@ const alinhadores: Procedure = {
   stats: [
     { value: "100%", label: "Discreto" },
     { value: "3D", label: "Plano digital" },
-    { value: "450+", label: "Avaliações 5★" },
+    { value: "500+", label: "Avaliações 5★" },
     { value: "8", label: "Especialistas" },
   ],
 
@@ -458,7 +447,7 @@ const alinhadores: Procedure = {
   proTitle: "Quem conduz o seu tratamento",
   proIntro:
     "Ortodontia liderada por especialistas com formação internacional e foco na previsibilidade do resultado.",
-  professionals: [PROS.arethuza, PROS.pethine, PROS.sara, PROS.daiane],
+  professionals: [PROS.arethuza, PROS.catharina, PROS.pethine, PROS.sara, PROS.daiane],
 
   testimonialsTitle: "Histórias de quem alinhou o sorriso",
   testimonials: [
@@ -536,7 +525,7 @@ const capilar: Procedure = {
   formCta: "Quero a minha avaliação",
   formFields,
   formFootnote:
-    "Os seus dados são tratados com total confidencialidade. Sem custos nem compromisso.",
+    "Os seus dados são tratados com total confidencialidade.",
   offerName: "Análise capilar + desenho da sua nova linha frontal",
   urgency: "Agenda de procedimentos limitada este mês",
   proof: PROOF,
@@ -557,7 +546,7 @@ const capilar: Procedure = {
   stats: [
     { value: "17+", label: "Anos de experiência" },
     { value: "1 dia", label: "Procedimento" },
-    { value: "450+", label: "Avaliações 5★" },
+    { value: "500+", label: "Avaliações 5★" },
     { value: "100%", label: "Plano à medida" },
   ],
 

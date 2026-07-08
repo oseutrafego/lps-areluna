@@ -43,7 +43,7 @@ export default function LeadForm({
           <div className="mt-4 flex items-start gap-2.5 rounded-sm border border-gold-leaf/25 bg-gold-leaf/[0.06] px-4 py-3">
             <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold-leaf" />
             <p className="text-sm leading-snug text-sand/85">
-              Inclui <span className="text-gold-pale">{offerName}</span> — sem custo.
+              Inclui <span className="text-gold-pale">{offerName}</span>.
             </p>
           </div>
         )}

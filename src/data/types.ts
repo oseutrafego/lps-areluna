@@ -25,6 +25,7 @@ export interface Professional {
   name: string;
   role: string;
   credential: string;
+  photo?: string;
 }
 
 export interface Testimonial {

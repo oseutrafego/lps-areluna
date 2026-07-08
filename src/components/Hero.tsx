@@ -2,7 +2,7 @@ import Image from "next/image";
 import type { Procedure } from "@/data/types";
 import LeadForm from "./LeadForm";
 import RatingBadge from "./RatingBadge";
-import { Check, Star } from "./icons";
+import { Star } from "./icons";
 
 export default function Hero({ p }: { p: Procedure }) {
   return (
@@ -31,21 +31,7 @@ export default function Hero({ p }: { p: Procedure }) {
             {p.heroSub}
           </p>
 
-          <ul className="mt-8 flex flex-wrap gap-x-7 gap-y-3">
-            {p.heroChips.map((c) => (
-              <li key={c} className="flex items-center gap-2.5 text-sm text-sand/85">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full border border-gold-leaf/40 text-gold-leaf">
-                  <Check className="h-3 w-3" />
-                </span>
-                {c}
-              </li>
-            ))}
-          </ul>
-
           <div className="mt-10 flex flex-wrap items-center gap-5">
-            <a href="#form" className="btn-gold">
-              {p.formCta}
-            </a>
             {p.proof ? (
               <RatingBadge proof={p.proof} />
             ) : (
@@ -55,7 +41,7 @@ export default function Hero({ p }: { p: Procedure }) {
                     <Star key={i} className="h-4 w-4" />
                   ))}
                 </div>
-                <span className="text-xs text-sand/55">450+ avaliações 5 estrelas</span>
+                <span className="text-xs text-sand/55">500+ avaliações 5 estrelas</span>
               </div>
             )}
           </div>
