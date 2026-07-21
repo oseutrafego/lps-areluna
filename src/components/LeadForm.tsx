@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { LeadField } from "@/data/types";
+import { LEAD_WEBHOOK } from "@/data/tracking";
 import { Check } from "./icons";
 
 export default function LeadForm({
@@ -12,6 +13,7 @@ export default function LeadForm({
   footnote,
   offerName,
   urgency,
+  unit = "br",
   id = "form",
 }: {
   title: string;
@@ -21,14 +23,29 @@ export default function LeadForm({
   footnote: string;
   offerName?: string;
   urgency?: string;
+  unit?: "pt" | "br";
   id?: string;
 }) {
-  const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // Protótipo: aqui entra a integração real (Meta Lead / CRM Zoho / webhook).
-    setSent(true);
+    setSending(true);
+    const payload = Object.fromEntries(new FormData(e.currentTarget).entries());
+    // Envia ao CRM se houver webhook configurado; senão, apenas redireciona.
+    if (LEAD_WEBHOOK) {
+      try {
+        await fetch(LEAD_WEBHOOK, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ...payload, procedimento: title, unidade: unit }),
+        });
+      } catch {
+        /* não bloqueia a experiência do utilizador */
+      }
+    }
+    // Redireciona para a página de obrigado (onde dispara a conversão).
+    window.location.href = `/obrigado?u=${unit}`;
   }
 
   return (
@@ -55,19 +72,7 @@ export default function LeadForm({
         )}
       </div>
 
-      {sent ? (
-        <div className="flex flex-col items-center gap-3 py-10 text-center">
-          <span className="flex h-12 w-12 items-center justify-center rounded-full border border-gold-leaf/50 text-gold-leaf">
-            <Check className="h-6 w-6" />
-          </span>
-          <p className="font-serif text-2xl text-sand">Pedido recebido.</p>
-          <p className="max-w-xs text-sm text-sand/60">
-            A nossa equipa entrará em contacto em breve para agendar a sua
-            avaliação. Obrigado pela confiança.
-          </p>
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-3.5">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3.5">
           {fields.map((f) => (
             <div key={f.name} className="flex flex-col gap-1.5">
               <label
@@ -104,14 +109,13 @@ export default function LeadForm({
               )}
             </div>
           ))}
-          <button type="submit" className="btn-gold mt-2 w-full">
-            {cta}
+          <button type="submit" disabled={sending} className="btn-gold mt-2 w-full disabled:opacity-60">
+            {sending ? "A enviar…" : cta}
           </button>
           <p className="mt-1 text-center text-[0.68rem] leading-relaxed text-sand/35">
             {footnote}
           </p>
         </form>
-      )}
     </div>
   );
 }

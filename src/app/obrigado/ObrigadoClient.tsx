@@ -1,0 +1,84 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { PT_CONTACT, BR_CONTACT } from "@/data/shared";
+import {
+  GOOGLE_ADS_ID,
+  GOOGLE_ADS_CONVERSION_LABEL,
+  META_PIXEL_ID,
+} from "@/data/tracking";
+import { Check } from "@/components/icons";
+
+export default function ObrigadoClient() {
+  const [whatsapp, setWhatsapp] = useState(BR_CONTACT.whatsappHref);
+
+  useEffect(() => {
+    const u = new URLSearchParams(window.location.search).get("u");
+    setWhatsapp(u === "pt" ? PT_CONTACT.whatsappHref : BR_CONTACT.whatsappHref);
+
+    // Conversão do Google Ads (só dispara se os IDs estiverem preenchidos)
+    const g = (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag;
+    if (GOOGLE_ADS_ID && GOOGLE_ADS_CONVERSION_LABEL && typeof g === "function") {
+      g("event", "conversion", {
+        send_to: `${GOOGLE_ADS_ID}/${GOOGLE_ADS_CONVERSION_LABEL}`,
+      });
+    }
+    // Meta Pixel (opcional)
+    const fbq = (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq;
+    if (META_PIXEL_ID && typeof fbq === "function") {
+      fbq("track", "Lead");
+    }
+  }, []);
+
+  return (
+    <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-jet px-6 py-20 text-center">
+      <div className="pointer-events-none absolute inset-0 opacity-[0.06]">
+        <Image src="/brand/fundo.png" alt="" fill className="object-cover" priority />
+      </div>
+      <div className="pointer-events-none absolute -top-24 right-0 h-[420px] w-[420px] rounded-full bg-gold-leaf/[0.08] blur-[120px]" />
+
+      <div className="animate-fade-up relative flex flex-col items-center">
+        <Image
+          src="/brand/instituto-gold.png"
+          alt="Instituto Areluna"
+          width={176}
+          height={116}
+          priority
+          className="mb-10 h-16 w-auto"
+        />
+
+        <span className="mb-7 flex h-16 w-16 items-center justify-center rounded-full border border-gold-leaf/50 text-gold-leaf">
+          <Check className="h-8 w-8" />
+        </span>
+
+        <h1 className="display text-4xl text-sand md:text-5xl">
+          Pedido recebido.
+        </h1>
+
+        <p className="mt-5 max-w-md text-base leading-relaxed text-sand/70">
+          A nossa equipa vai entrar em contacto em breve para agendar a sua
+          avaliação especializada. Obrigado pela confiança.
+        </p>
+
+        <div className="mt-10 flex flex-col items-center gap-4">
+          <a
+            href={whatsapp}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-gold"
+          >
+            Falar agora no WhatsApp
+          </a>
+          <span className="text-xs uppercase tracking-[0.16em] text-sand/40">
+            Quer adiantar? Fale connosco agora mesmo.
+          </span>
+        </div>
+      </div>
+
+      <p className="relative mt-16 text-[0.7rem] uppercase tracking-[0.18em] text-sand/30">
+        Instituto Areluna · Estética &amp; Padrão Europeu
+      </p>
+    </main>
+  );
+}

@@ -57,6 +57,7 @@ export default function Hero({ p }: { p: Procedure }) {
             footnote={p.formFootnote}
             offerName={p.offerName}
             urgency={p.urgency}
+            unit={p.unit}
           />
         </div>
       </div>
