@@ -10,12 +10,25 @@ import {
 } from "@/data/tracking";
 import { Check } from "@/components/icons";
 
+const COPY = {
+  br: {
+    sub: "Nossa equipe vai entrar em contato em breve para agendar a sua avaliação especializada. Obrigado pela confiança.",
+    hint: "Quer adiantar? Fale conosco agora mesmo.",
+  },
+  pt: {
+    sub: "A nossa equipa vai entrar em contacto em breve para agendar a sua avaliação especializada. Obrigado pela confiança.",
+    hint: "Quer adiantar? Fale connosco agora mesmo.",
+  },
+};
+
 export default function ObrigadoClient() {
   const [whatsapp, setWhatsapp] = useState(BR_CONTACT.whatsappHref);
+  const [copy, setCopy] = useState(COPY.br);
 
   useEffect(() => {
     const u = new URLSearchParams(window.location.search).get("u");
     setWhatsapp(u === "pt" ? PT_CONTACT.whatsappHref : BR_CONTACT.whatsappHref);
+    setCopy(u === "pt" ? COPY.pt : COPY.br);
 
     // Conversão do Google Ads (só dispara se os IDs estiverem preenchidos)
     const g = (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag;
@@ -57,8 +70,7 @@ export default function ObrigadoClient() {
         </h1>
 
         <p className="mt-5 max-w-md text-base leading-relaxed text-sand/70">
-          A nossa equipa vai entrar em contacto em breve para agendar a sua
-          avaliação especializada. Obrigado pela confiança.
+          {copy.sub}
         </p>
 
         <div className="mt-10 flex flex-col items-center gap-4">
@@ -71,7 +83,7 @@ export default function ObrigadoClient() {
             Falar agora no WhatsApp
           </a>
           <span className="text-xs uppercase tracking-[0.16em] text-sand/40">
-            Quer adiantar? Fale connosco agora mesmo.
+            {copy.hint}
           </span>
         </div>
       </div>
