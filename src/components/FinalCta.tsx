@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { Procedure } from "@/data/types";
 import Reveal from "./Reveal";
 import { WhatsApp } from "./icons";
+import LinkWhatsapp from "./LinkWhatsapp";
 
 export default function FinalCta({ p }: { p: Procedure }) {
   return (
@@ -31,10 +32,10 @@ export default function FinalCta({ p }: { p: Procedure }) {
               {p.finalCta}
             </a>
             {p.whatsappHref && (
-              <a href={p.whatsappHref} className="btn-ghost" target="_blank" rel="noreferrer">
+              <LinkWhatsapp href={p.whatsappHref} unidade={p.unit} className="btn-ghost">
                 <WhatsApp className="h-4 w-4" />
                 Falar no WhatsApp
-              </a>
+              </LinkWhatsapp>
             )}
           </div>
           {p.urgency && (

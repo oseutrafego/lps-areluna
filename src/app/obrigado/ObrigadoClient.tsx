@@ -3,11 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { PT_CONTACT, BR_CONTACT } from "@/data/shared";
-import {
-  GOOGLE_ADS_ID,
-  GOOGLE_ADS_CONVERSION_LABEL,
-  META_PIXEL_ID,
-} from "@/data/tracking";
+import { converterFormulario, converterWhatsapp, META_PIXEL_ID, type Unidade } from "@/data/tracking";
 import { Check } from "@/components/icons";
 
 const COPY = {
@@ -23,20 +19,18 @@ const COPY = {
 
 export default function ObrigadoClient() {
   const [whatsapp, setWhatsapp] = useState(BR_CONTACT.whatsappHref);
+  const [unidade, setUnidade] = useState<Unidade>("br");
   const [copy, setCopy] = useState(COPY.br);
 
   useEffect(() => {
-    const u = new URLSearchParams(window.location.search).get("u");
+    const u = new URLSearchParams(window.location.search).get("u") as Unidade | null;
     setWhatsapp(u === "pt" ? PT_CONTACT.whatsappHref : BR_CONTACT.whatsappHref);
     setCopy(u === "pt" ? COPY.pt : COPY.br);
+    setUnidade(u === "pt" ? "pt" : "br");
 
-    // Conversão do Google Ads (só dispara se os IDs estiverem preenchidos)
-    const g = (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag;
-    if (GOOGLE_ADS_ID && GOOGLE_ADS_CONVERSION_LABEL && typeof g === "function") {
-      g("event", "conversion", {
-        send_to: `${GOOGLE_ADS_ID}/${GOOGLE_ADS_CONVERSION_LABEL}`,
-      });
-    }
+    // Conversão do Google Ads, na conta da unidade certa.
+    converterFormulario(u === "pt" ? "pt" : "br");
+
     // Meta Pixel (opcional)
     const fbq = (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq;
     if (META_PIXEL_ID && typeof fbq === "function") {
@@ -79,6 +73,7 @@ export default function ObrigadoClient() {
             target="_blank"
             rel="noreferrer"
             className="btn-gold"
+            onClick={() => converterWhatsapp(unidade)}
           >
             Falar agora no WhatsApp
           </a>

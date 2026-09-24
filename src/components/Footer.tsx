@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Procedure } from "@/data/types";
 import { Phone, WhatsApp } from "./icons";
+import LinkWhatsapp from "./LinkWhatsapp";
 
 export default function Footer({ p }: { p: Procedure }) {
   return (
@@ -33,15 +34,14 @@ export default function Footer({ p }: { p: Procedure }) {
             </a>
           )}
           {p.whatsappHref ? (
-            <a
+            <LinkWhatsapp
               href={p.whatsappHref}
-              target="_blank"
-              rel="noreferrer"
+              unidade={p.unit}
               className="mt-3 flex items-center gap-2 text-sm text-sand/75 transition hover:text-gold-pale"
             >
               <WhatsApp className="h-4 w-4 text-gold-leaf" />
               WhatsApp
-            </a>
+            </LinkWhatsapp>
           ) : (
             <a
               href="#form"
