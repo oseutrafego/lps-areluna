@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { LeadField } from "@/data/types";
 import { LEAD_WEBHOOK } from "@/data/tracking";
 import { Check } from "./icons";
+import PhoneField from "./PhoneField";
 
 export default function LeadForm({
   title,
@@ -73,7 +74,17 @@ export default function LeadForm({
       </div>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-3.5">
-          {fields.map((f) => (
+          {fields.map((f) =>
+            f.type === "tel" ? (
+              <PhoneField
+                key={f.name}
+                name={f.name}
+                label={f.label}
+                required={f.required}
+                unit={unit}
+                className="rounded-sm border border-sand/15 bg-[#161616] px-4 py-3 text-sm text-sand outline-none transition placeholder:text-sand/30 focus:border-gold-leaf/70"
+              />
+            ) : (
             <div key={f.name} className="flex flex-col gap-1.5">
               <label
                 htmlFor={f.name}
@@ -108,7 +119,8 @@ export default function LeadForm({
                 />
               )}
             </div>
-          ))}
+            )
+          )}
           <button type="submit" disabled={sending} className="btn-gold mt-2 w-full disabled:opacity-60">
             {sending ? "A enviar…" : cta}
           </button>
